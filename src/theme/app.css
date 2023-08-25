@@ -1,0 +1,60 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 400;
+  font-display: block;
+  src: url('./fonts/poppins/Poppins-Regular.ttf');
+}
+
+@font-face {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 600;
+  font-display: block;
+  src: url('./fonts/poppins/Poppins-Bold.ttf');
+}
+
+@font-face {
+  font-family: 'Nunito Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-display: block;
+  src: url('./fonts/nunito-sans/NunitoSans-Regular.ttf');
+}
+
+@font-face {
+  font-family: 'Nunito Sans';
+  font-style: normal;
+  font-weight: 600;
+  font-display: block;
+  src: url('./fonts/nunito-sans/NunitoSans-Bold.ttf');
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type='number'] {
+  -moz-appearance: textfield;
+}
+
+@layer components {
+  html {
+    min-height: 100vh;
+  }
+
+  body {
+    @apply bg-white text-black;
+    font-family: 'Nunito Sans', serif;
+    font-weight: 400;
+    font-size: 16px;
+  }
+}
