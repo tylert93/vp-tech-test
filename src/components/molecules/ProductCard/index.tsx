@@ -69,17 +69,15 @@ export const ProductCard = ({ product }: ProductCardProps) => (
         {' '}
         {product.stockStatus.status === 'G' ? (
           <Flex alignItems="center">
-            <TruckIcon className="h-3.5 mr-0.5 text-green-500" />
+            <TruckIcon className="h-3.5 mr-1 text-green-500" />
             <Typography variant="bodyXS">
               In stock {product.price.priceIncTax > 50 && '- free delivery'}
             </Typography>
           </Flex>
         ) : (
           <Flex alignItems="center">
-            <NoSymbolIcon className="h-3.5 mr-0.5 text-red-500" />
-            <Typography variant="bodyXS">
-              {product.averageRating} ({product.reviewsCount})
-            </Typography>
+            <NoSymbolIcon className="h-3.5 mr-1 text-red-500" />
+            <Typography variant="bodyXS">Out of stock</Typography>
           </Flex>
         )}
       </div>

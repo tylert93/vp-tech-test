@@ -152,6 +152,7 @@ export const Products = () => {
             />
           </div>
         </Grid>
+
         <Grid item lg={9}>
           <div className="w-full px-3 mb-2 lg:hidden">
             <PaginationResults

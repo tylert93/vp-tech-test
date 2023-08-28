@@ -29,7 +29,11 @@ export const FilterAccordion = <
   const handleClick = () => setOpen((cur) => !cur);
 
   return (
-    <Accordion open={open} className={clsx(border && 'border-b border-black')}>
+    <Accordion
+      open={open}
+      className={clsx(border && 'border-b border-black')}
+      icon={<></>}
+    >
       <AccordionHeader className="border-none" onClick={handleClick}>
         <Flex justify="between" alignItems="center" className="w-full">
           <Typography>{title}</Typography>
@@ -42,8 +46,8 @@ export const FilterAccordion = <
         </Flex>
       </AccordionHeader>
       <AccordionBody>
-        {options.map((option) => (
-          <Flex className="mb-3">
+        {options.map((option, idx) => (
+          <Flex key={`${title}-checkbox-${idx}`} className="mb-3">
             <Checkbox
               selectedFilters={selectedFilters}
               setSelectedFilters={setSelectedFilters}
