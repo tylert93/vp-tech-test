@@ -53,6 +53,7 @@ export const Checkbox = <T extends FilterFacetDefault | FilterFacetPrice>({
         setEnabled(false);
       }
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [firstLoad]);
 
   useEffect(() => {

@@ -1,4 +1,3 @@
-import { SetStateAction, Dispatch } from 'react';
 import { Product, ProductsQuery } from '@src/types/products';
 
 export interface ProductsDisplayProps {

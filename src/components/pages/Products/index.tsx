@@ -60,13 +60,6 @@ export const Products = () => {
   const [clearSwitch, setClearSwitch] = useState<undefined | boolean>();
   const [firstLoad, setFirstLoad] = useState(false);
 
-  if (
-    !productType ||
-    !Object.values(ProductType).includes(productType as ProductType)
-  ) {
-    return null;
-  }
-
   let facets: FilterFacets;
   let storageKeys: FiltersStorageKeys;
 
@@ -131,7 +124,8 @@ export const Products = () => {
 
   const { data, isError, isLoading } = useQuery<ProductsQuery>({
     queryKey: ['products', orderBy.displayValue],
-    queryFn: () => getProducts(productType, orderBy.value),
+    queryFn: () =>
+      getProducts(productType ?? ProductType.Toilets, orderBy.value),
   });
 
   const getPaginationStats = () => {
@@ -183,6 +177,7 @@ export const Products = () => {
     );
 
     setFirstLoad(true);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   useEffect(() => {
@@ -195,7 +190,15 @@ export const Products = () => {
 
   useEffect(() => {
     getPaginationStats();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [currentPage, products]);
+
+  if (
+    !productType ||
+    !Object.values(ProductType).includes(productType as ProductType)
+  ) {
+    return null;
+  }
 
   return (
     <PageWrapper>
