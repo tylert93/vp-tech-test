@@ -57,4 +57,8 @@ input[type='number'] {
     font-weight: 400;
     font-size: 16px;
   }
+
+  .instagram-gradient {
+    background-image: linear-gradient(to right top, #dc015b, #5405c1);
+  }
 }

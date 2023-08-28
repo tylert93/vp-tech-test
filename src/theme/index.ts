@@ -15,7 +15,6 @@ const theme = {
   mode: 'jit',
   theme: {
     screens: breakpoints,
-    spacing,
     typography,
     borderWidth: {
       DEFAULT: '1px',

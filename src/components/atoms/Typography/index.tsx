@@ -5,7 +5,7 @@ import { variantClasses, alignClasses } from './styles';
 
 const defaultElement = 'span';
 
-const Typography = <T extends ElementType = typeof defaultElement>({
+export const Typography = <T extends ElementType = typeof defaultElement>({
   as,
   display = 'block',
   variant,
@@ -33,5 +33,3 @@ const Typography = <T extends ElementType = typeof defaultElement>({
     </TagName>
   );
 };
-
-export default Typography;

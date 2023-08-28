@@ -1,6 +1,11 @@
 const colors = {
   black: '#2a2a2a',
   white: '#FFF',
+  facebook: '#315891',
+  twitter: '#2aa7d2',
+  pinterest: '#c82728',
+  youtube: '#f00001',
+  'vp-purple': '#4a1639',
   gray: {
     main: '#222222',
     700: '#222222',
