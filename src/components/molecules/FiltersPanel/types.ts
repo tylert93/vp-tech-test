@@ -3,15 +3,15 @@ import {
   FilterFacetPrice,
   FilterFacets,
 } from '@src/types/products';
-import { Dispatch, SetStateAction } from 'react';
 
 export interface FiltersPanelProps {
   facets: FilterFacets;
   selectedBrands: FilterFacetDefault[];
-  setSelectedBrands: Dispatch<SetStateAction<FilterFacetDefault[]>>;
+  updateBrands: (filters: FilterFacetDefault[]) => void;
   selectedTypes: FilterFacetDefault[];
-  setSelectedTypes: Dispatch<SetStateAction<FilterFacetDefault[]>>;
+  updateTypes: (filters: FilterFacetDefault[]) => void;
   selectedPrices: FilterFacetPrice[];
-  setSelectedPrices: Dispatch<SetStateAction<FilterFacetPrice[]>>;
-  clearSwitch: boolean;
+  updatePrices: (filters: FilterFacetPrice[]) => void;
+  clearSwitch: undefined | boolean;
+  firstLoad: boolean;
 }

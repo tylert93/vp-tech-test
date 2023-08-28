@@ -1,12 +1,11 @@
-import { Dispatch, SetStateAction } from 'react';
-
 import { FilterFacetDefault, FilterFacetPrice } from '@src/types/products';
 
 export interface CheckBoxProps<
   T extends FilterFacetDefault | FilterFacetPrice
 > {
   selectedFilters: T[];
-  setSelectedFilters: Dispatch<SetStateAction<T[]>>;
+  updateFilters: (filters: T[]) => void;
   option: T;
-  clearSwitch: boolean;
+  clearSwitch: undefined | boolean;
+  firstLoad: boolean;
 }

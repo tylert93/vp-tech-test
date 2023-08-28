@@ -1,5 +1,3 @@
-import { Dispatch, SetStateAction } from 'react';
-
 import { FilterFacetDefault, FilterFacetPrice } from '@src/types/products';
 
 export interface FilterAccordionProps<
@@ -9,6 +7,7 @@ export interface FilterAccordionProps<
   options: T[];
   border?: boolean;
   selectedFilters: T[];
-  setSelectedFilters: Dispatch<SetStateAction<T[]>>;
-  clearSwitch: boolean;
+  updateFilters: (filters: T[]) => void;
+  clearSwitch: undefined | boolean;
+  firstLoad: boolean;
 }

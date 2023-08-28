@@ -16,7 +16,7 @@ export const PaginationResults = ({
 
   return (
     <Typography className="mb-3">
-      Showing {from}-{to} of {totalProducts}
+      Showing {totalProducts ? from : 0}-{to} of {totalProducts}
     </Typography>
   );
 };

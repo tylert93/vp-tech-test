@@ -21,8 +21,9 @@ export const FilterAccordion = <
   options,
   border = true,
   selectedFilters,
-  setSelectedFilters,
+  updateFilters,
   clearSwitch,
+  firstLoad,
 }: FilterAccordionProps<T>) => {
   const [open, setOpen] = React.useState(false);
 
@@ -50,9 +51,10 @@ export const FilterAccordion = <
           <Flex key={`${title}-checkbox-${idx}`} className="mb-3">
             <Checkbox
               selectedFilters={selectedFilters}
-              setSelectedFilters={setSelectedFilters}
+              updateFilters={updateFilters}
               option={option}
               clearSwitch={clearSwitch}
+              firstLoad={firstLoad}
             />
             <Typography variant="bodySM" className="ml-2">
               {option.displayValue}

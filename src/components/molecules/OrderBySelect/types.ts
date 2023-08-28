@@ -4,5 +4,5 @@ import { OrderByOption } from '@src/types/products';
 
 export interface OrderBySelectProps {
   orderBy: OrderByOption;
-  setOrderBy: Dispatch<SetStateAction<OrderByOption>>;
+  updateOrderBy: (orderBy: OrderByOption) => void;
 }

@@ -6,8 +6,11 @@ import { ORDER_BY_OPTIONS } from '@src/configuration/constants';
 
 import { OrderBySelectProps } from './types';
 
-export const OrderBySelect = ({ orderBy, setOrderBy }: OrderBySelectProps) => (
-  <Listbox value={orderBy} onChange={setOrderBy}>
+export const OrderBySelect = ({
+  orderBy,
+  updateOrderBy,
+}: OrderBySelectProps) => (
+  <Listbox value={orderBy} onChange={updateOrderBy}>
     <div className="relative mt-1 z-10 w-48">
       <Listbox.Button className="relative w-full rounded bg-white py-2 pl-3 pr-10 text-left border border-black">
         <span className="block truncate">{orderBy.displayValue}</span>

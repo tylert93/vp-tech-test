@@ -5,35 +5,39 @@ import { FiltersPanelProps } from './types';
 export const FiltersPanel = ({
   facets,
   selectedBrands,
-  setSelectedBrands,
+  updateBrands,
   selectedTypes,
-  setSelectedTypes,
+  updateTypes,
   selectedPrices,
-  setSelectedPrices,
+  updatePrices,
   clearSwitch,
+  firstLoad,
 }: FiltersPanelProps) => (
   <>
     <FilterAccordion
       title="Type"
       options={facets.type}
       selectedFilters={selectedTypes}
-      setSelectedFilters={setSelectedTypes}
+      updateFilters={updateTypes}
       clearSwitch={clearSwitch}
+      firstLoad={firstLoad}
     />
     <FilterAccordion
       title="Brand"
       options={facets.brand}
       selectedFilters={selectedBrands}
-      setSelectedFilters={setSelectedBrands}
+      updateFilters={updateBrands}
       clearSwitch={clearSwitch}
+      firstLoad={firstLoad}
     />
     <FilterAccordion
       title="Price"
       options={facets.price}
       selectedFilters={selectedPrices}
-      setSelectedFilters={setSelectedPrices}
+      updateFilters={updatePrices}
       border={false}
       clearSwitch={clearSwitch}
+      firstLoad={firstLoad}
     />
   </>
 );

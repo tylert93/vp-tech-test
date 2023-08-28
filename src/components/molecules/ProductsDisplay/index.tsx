@@ -13,19 +13,23 @@ export const ProductsDisplay = ({
   isError,
   data,
   currentPage,
-  setCurrentPage,
+  updateCurrentPage,
   totalPages,
 }: ProductsDisplayProps) => {
   const next = () => {
     if (currentPage === totalPages) return;
 
-    setCurrentPage(currentPage + 1);
+    const newPageNumber = currentPage + 1;
+
+    updateCurrentPage(newPageNumber);
   };
 
   const prev = () => {
     if (currentPage === 1) return;
 
-    setCurrentPage(currentPage - 1);
+    const newPageNumber = currentPage - 1;
+
+    updateCurrentPage(newPageNumber);
   };
 
   if (isLoading) {

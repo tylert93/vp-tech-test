@@ -8,9 +8,10 @@ import { FilterFacetDefault, FilterFacetPrice } from '@src/types/products';
 
 export const Checkbox = <T extends FilterFacetDefault | FilterFacetPrice>({
   selectedFilters,
-  setSelectedFilters,
+  updateFilters,
   option,
   clearSwitch,
+  firstLoad,
 }: CheckBoxProps<T>) => {
   const [enabled, setEnabled] = useState(false);
 
@@ -27,33 +28,37 @@ export const Checkbox = <T extends FilterFacetDefault | FilterFacetPrice>({
       const newFilters = selectedFilters.filter(
         (filter) => filter.displayValue !== option.displayValue
       );
-      setSelectedFilters(newFilters);
+      updateFilters(newFilters);
       setEnabled(false);
     } else {
       const newFilters = [...selectedFilters, option];
-      setSelectedFilters(newFilters);
+      updateFilters(newFilters);
       setEnabled(true);
     }
   };
 
   useEffect(() => {
-    let isSelected = false;
+    if (firstLoad) {
+      let isSelected = false;
 
-    selectedFilters.forEach((filter) => {
-      if (filter.displayValue === option.displayValue) {
-        return (isSelected = true);
+      selectedFilters.forEach((filter) => {
+        if (filter.displayValue === option.displayValue) {
+          return (isSelected = true);
+        }
+      });
+
+      if (isSelected) {
+        setEnabled(true);
+      } else {
+        setEnabled(false);
       }
-    });
-
-    if (isSelected) {
-      setEnabled(true);
-    } else {
-      setEnabled(false);
     }
-  }, []);
+  }, [firstLoad]);
 
   useEffect(() => {
-    setEnabled(false);
+    if (clearSwitch !== undefined) {
+      setEnabled(false);
+    }
   }, [clearSwitch]);
 
   return (

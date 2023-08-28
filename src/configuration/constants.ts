@@ -625,3 +625,17 @@ export const ORDER_BY_OPTIONS = [
 ];
 
 export const PAGE_SIZE = 9;
+
+export const TOILET_STORAGE_KEYS = {
+  types: 'toiletTypes',
+  brands: 'toiletBrands',
+  prices: 'toiletPrices',
+};
+
+export const BATH_STORAGE_KEYS = {
+  types: 'bathTypes',
+  brands: 'bathBrands',
+  prices: 'bathPrices',
+};
+
+export const ORDER_BY_STORAGE_KEY = 'orderBy';

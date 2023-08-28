@@ -7,6 +7,6 @@ export interface ProductsDisplayProps {
   isError: boolean;
   data: ProductsQuery | undefined;
   currentPage: number;
-  setCurrentPage: Dispatch<SetStateAction<number>>;
+  updateCurrentPage: (pageNumber: number) => void;
   totalPages: number;
 }

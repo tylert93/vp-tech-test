@@ -153,3 +153,9 @@ export enum ProductType {
   Toilets = 'toilets',
   Baths = 'baths',
 }
+
+export interface FiltersStorageKeys {
+  types: string;
+  brands: string;
+  prices: string;
+}
