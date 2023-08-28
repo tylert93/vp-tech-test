@@ -8,4 +8,5 @@ export interface CheckBoxProps<
   selectedFilters: T[];
   setSelectedFilters: Dispatch<SetStateAction<T[]>>;
   option: T;
+  clearSwitch: boolean;
 }

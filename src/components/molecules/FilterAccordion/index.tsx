@@ -22,6 +22,7 @@ export const FilterAccordion = <
   border = true,
   selectedFilters,
   setSelectedFilters,
+  clearSwitch,
 }: FilterAccordionProps<T>) => {
   const [open, setOpen] = React.useState(false);
 
@@ -47,6 +48,7 @@ export const FilterAccordion = <
               selectedFilters={selectedFilters}
               setSelectedFilters={setSelectedFilters}
               option={option}
+              clearSwitch={clearSwitch}
             />
             <Typography variant="bodySM" className="ml-2">
               {option.displayValue}

@@ -13,4 +13,5 @@ export interface FiltersPanelProps {
   setSelectedTypes: Dispatch<SetStateAction<FilterFacetDefault[]>>;
   selectedPrices: FilterFacetPrice[];
   setSelectedPrices: Dispatch<SetStateAction<FilterFacetPrice[]>>;
+  clearSwitch: boolean;
 }

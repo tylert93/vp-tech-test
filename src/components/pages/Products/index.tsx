@@ -44,11 +44,17 @@ export const Products = () => {
   const [from, setFrom] = useState(0);
   const [to, setTo] = useState(0);
   const [totalPages, setTotalPages] = useState(0);
+  const [clearSwitch, setClearSwitch] = useState(false);
 
   const openDrawer = () => setOpen(true);
   const closeDrawer = () => setOpen(false);
 
-  let facets;
+  const clearFilters = () => {
+    setSelectedBrands([]);
+    setSelectedTypes([]);
+    setSelectedPrices([]);
+    setClearSwitch(!clearSwitch);
+  };
 
   if (
     !productType ||
@@ -56,6 +62,8 @@ export const Products = () => {
   ) {
     return null;
   }
+
+  let facets;
 
   switch (productType) {
     case ProductType.Baths:
@@ -120,7 +128,15 @@ export const Products = () => {
       <Grid container>
         <Grid item xs={3} className="pr-4 hidden lg:block ">
           <Flex alignItems="center" className="h-[42px] mb-5">
-            <Typography className="font-bold">Filter By</Typography>
+            <Typography className="font-bold">Filter By</Typography>{' '}
+            <Button
+              className="rounded bg-white py-1 px-2 text-left text-red-500 border border-red-500 shadow-none hover:shadow-none normal-case mb-2 sm:mb-0 ml-3"
+              onClick={clearFilters}
+            >
+              <Typography variant="bodyXS" className="font-bold">
+                Clear
+              </Typography>
+            </Button>
           </Flex>
 
           <div className="bg-white w-full rounded border border-black p-3 mt-3">
@@ -132,6 +148,7 @@ export const Products = () => {
               setSelectedBrands={setSelectedBrands}
               selectedPrices={selectedPrices}
               setSelectedPrices={setSelectedPrices}
+              clearSwitch={clearSwitch}
             />
           </div>
         </Grid>
@@ -182,16 +199,30 @@ export const Products = () => {
 
       <Drawer onClose={closeDrawer} open={open} className="bg-white" size={300}>
         <div className="px-4 pt-2">
-          <Flex
-            justify="between"
-            alignItems="center"
-            className="w-full border-b border-gray-500 pb-2"
-          >
-            <Typography>Filters</Typography>
-            <IconButton variant="text" color="blue-gray" onClick={closeDrawer}>
-              <XMarkIcon className="h4 w-4" />
-            </IconButton>
-          </Flex>
+          <div className="border-b border-gray-500 pb-2">
+            <Flex justify="between" alignItems="center" className="w-full ">
+              <Flex alignItems="center">
+                <Typography>Filters</Typography>
+
+                <Button
+                  className="rounded bg-white py-1 px-2 text-left text-red-500 border border-red-500 shadow-none hover:shadow-none normal-case mb-2 sm:mb-0 ml-3"
+                  onClick={clearFilters}
+                >
+                  <Typography variant="bodyXS" className="font-bold">
+                    Clear
+                  </Typography>
+                </Button>
+              </Flex>
+
+              <IconButton
+                variant="text"
+                color="blue-gray"
+                onClick={closeDrawer}
+              >
+                <XMarkIcon className="h4 w-4" />
+              </IconButton>
+            </Flex>
+          </div>
 
           <FiltersPanel
             facets={facets}
@@ -201,6 +232,7 @@ export const Products = () => {
             setSelectedBrands={setSelectedBrands}
             selectedPrices={selectedPrices}
             setSelectedPrices={setSelectedPrices}
+            clearSwitch={clearSwitch}
           />
         </div>
       </Drawer>

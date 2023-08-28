@@ -10,6 +10,7 @@ export const Checkbox = <T extends FilterFacetDefault | FilterFacetPrice>({
   selectedFilters,
   setSelectedFilters,
   option,
+  clearSwitch,
 }: CheckBoxProps<T>) => {
   const [enabled, setEnabled] = useState(false);
 
@@ -50,6 +51,10 @@ export const Checkbox = <T extends FilterFacetDefault | FilterFacetPrice>({
       setEnabled(false);
     }
   }, []);
+
+  useEffect(() => {
+    setEnabled(false);
+  }, [clearSwitch]);
 
   return (
     <Switch checked={enabled} onChange={handleChange} as={Fragment}>

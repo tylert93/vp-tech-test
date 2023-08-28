@@ -10,5 +10,5 @@ export interface FilterAccordionProps<
   border?: boolean;
   selectedFilters: T[];
   setSelectedFilters: Dispatch<SetStateAction<T[]>>;
-  price?: boolean;
+  clearSwitch: boolean;
 }

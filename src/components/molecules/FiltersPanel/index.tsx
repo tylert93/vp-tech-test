@@ -10,6 +10,7 @@ export const FiltersPanel = ({
   setSelectedTypes,
   selectedPrices,
   setSelectedPrices,
+  clearSwitch,
 }: FiltersPanelProps) => (
   <>
     <FilterAccordion
@@ -17,20 +18,22 @@ export const FiltersPanel = ({
       options={facets.type}
       selectedFilters={selectedTypes}
       setSelectedFilters={setSelectedTypes}
+      clearSwitch={clearSwitch}
     />
     <FilterAccordion
       title="Brand"
       options={facets.brand}
       selectedFilters={selectedBrands}
       setSelectedFilters={setSelectedBrands}
+      clearSwitch={clearSwitch}
     />
     <FilterAccordion
       title="Price"
       options={facets.price}
       selectedFilters={selectedPrices}
       setSelectedFilters={setSelectedPrices}
-      price
       border={false}
+      clearSwitch={clearSwitch}
     />
   </>
 );
