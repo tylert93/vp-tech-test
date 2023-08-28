@@ -197,10 +197,6 @@ export const Products = () => {
     getPaginationStats();
   }, [currentPage, products]);
 
-  useEffect(() => {
-    clearFilters();
-  }, [orderBy]);
-
   return (
     <PageWrapper>
       <div className="text-center border-b border-black py-10 mb-10">
@@ -222,7 +218,7 @@ export const Products = () => {
             </Button>
           </Flex>
 
-          <div className="bg-white w-full rounded border border-black p-3 mt-3">
+          <div className="bg-white w-full rounded border border-black p-3 mt-6">
             <FiltersPanel
               facets={facets}
               selectedTypes={selectedTypes}
@@ -266,7 +262,11 @@ export const Products = () => {
 
             <Flex alignItems="center">
               <Typography className="mr-3">Order By</Typography>
-              <OrderBySelect orderBy={orderBy} updateOrderBy={updateOrderBy} />
+              <OrderBySelect
+                orderBy={orderBy}
+                updateOrderBy={updateOrderBy}
+                clearFilters={clearFilters}
+              />
             </Flex>
           </Flex>
 
